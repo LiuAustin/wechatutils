@@ -131,7 +131,7 @@ public class TestUserConnection {
 	 */
 	@Test
 	public void testRemarkUserName(){
-		String openid = "obc-3jttvh09pNP8BmodxhkxaCzo";
+		String openid = "您的openid";
 		JsonResult result = userConn.remarkUserName(accessToken,openid,"测试备注名称");
 		Assert.assertNotNull(result);
 		System.out.println("errorCode-->"+result.getErrcode());
@@ -140,12 +140,12 @@ public class TestUserConnection {
 	
 	/**
 	 * 获取用户基本信息
-	 * {"subscribe":1,"openid":"obc-3jttvh09pNP8BmodxhkxaCzo","nickname":"誓言","sex":1,
+	 * {"subscribe":1,"openid":"您的openid","nickname":"誓言","sex":1,
 	 */
 	@Test
 	public void testUnionIDUserInfo(){
-		String openid = "o8ed_jv3vIC6l7Y8WQybls0xl8n0";
-		String accessToken="VGSVaykTyyS6N2KHlrQOPOYIwQ62OXGHtQMBLRx7y9nFNZgLwm8J-OR8ZT97WMtqk_-C4YaSi5KXmuGlx0t4edY7GJRgnUIGAxzYNp_Q5Dg";
+		String openid = "您的openid";
+		String accessToken="您的accessToken";
 		WechatResult obj = userConn.unionIDUserInfo(accessToken,openid,"zh_CN");
 		WeixinUser user  = (WeixinUser) obj.getObj();
 		assertNotNull(user);
@@ -181,8 +181,8 @@ public class TestUserConnection {
 	 */
 	@Test
 	public void testGetBySnsapiUserInfo(){
-		String openid = "o8ed_jv3vIC6l7Y8WQybls0xl8n0";
-		String token="OezXcEiiBSKSxW0eoylIeEDjCaTvqOjan-GmTNbArTy8b2UBfJFrjcunAk2wQbUjJHGTepsD3vvGj6Fbkxer_h9PfXm_-5IAzDj6aUsPZN8AUHhbDKHhIloCY0fZzMhwESoav7FqOn5aYih7h4TZZg";
+		String openid = "您的openid";
+		String token="您的token";
 		WechatResult user = userConn.getBySnsapiUserInfo(token,openid,"zh_CN");
 		assertNotNull(user);
 		WeixinUser wUser = (WeixinUser) user.getObj();
@@ -196,7 +196,7 @@ public class TestUserConnection {
 	 */
 	@Test
 	public void testTestTokenValid(){
-		String openid = "o8ed_jv3vIC6l7Y8WQybls0xl8n0";
+		String openid = "您的openid";
 		JsonResult result = userConn.testTokenValid("OezXcEiiBSKSxW0eoylIeEDjCaTvqOjan-GmTNbArTy8b2UBfJFrjcunAk2wQbUjO5tnn-eXSlOEy9ajI_voKP4ODomR22di26oSAEepRnf-eYrwOa-LaF5yijZJScGgQAjHXKXB0jODXcSCq-pFkw",openid);
 		Assert.assertNotNull(result);
 		System.out.println("errorCode-->"+result.getErrcode());
@@ -206,7 +206,7 @@ public class TestUserConnection {
 	@Test
 	public void testTokenPath(){
 		try {
-			String path = UserConnection.getAuthCodeUrl("wx7c50b0eb849348d3","http://testmall.duapp.com/redirectAction","snsapi_userinfo","state");
+			String path = UserConnection.getAuthCodeUrl("您的公众号appid","回调地址","snsapi_userinfo","state");
 			System.out.println(path);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

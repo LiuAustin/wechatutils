@@ -36,14 +36,14 @@ public class TestConnection {
 	
 	/**
 	 * 测试获取token
-	 * wxbe9b341d6a65d7fb
-	 * df5425f47f1b7ba6277e845875a1cafa
-	 * {"access_token":"fKryWIvJ3rmO2V1i1wmuJo0zsxmHrgO4XZScIZEmr7u4WWe-gVIlmmeATK0VKbdBhEEchpf_ov3LB1gNSuvfP_s-dx-6Mo9aT_TLjZzYctA","expires_in":7200}
+	 * 您公众号key
+	 * 您公众号secret
+	 * {"access_token":"授权token","expires_in":7200}
 	 */
 	@Test 
 	public void testGetToken(){
-		String key="wxbe9b341d6a65d7fb";
-		String secret="df5425f47f1b7ba6277e845875a1cafa";
+		String key="您公众号key";
+		String secret="您公众号secret";
 		String path="https://api.weixin.qq.com/cgi-bin/token?";
 		TreeMap<String,String> map = new TreeMap<String,String>();
 		map.put("grant_type", "client_credential");

@@ -48,13 +48,13 @@ public class TestPay {
 		Map<String,String> params = new TreeMap<String,String>();
 		params.put("return_code","SUCCESS");
 		params.put("return_msg","OK");
-		params.put("appid","wx7c50b0eb849348d3");
+		params.put("appid","您的公众号appid");
 		params.put("mch_id","10012936");
 		params.put("device_info","WEB");
 		params.put("nonce_str","oApzl9vDmbAkAHGv");
 		params.put("result_code","SUCCESS");
 		params.put("trade_type","JSAPI");
-		params.put("prepay_id","wx201505261203439bb89284c30553273863");
+		params.put("prepay_id","prepay_id");
 		String sign = Signature.getSign(params,"");
 		System.out.println(sign);
 		//微信返回的sign是:   6E0D58A2FFB4C1E73FBA82D23A00941F
@@ -75,7 +75,7 @@ public class TestPay {
 	@Test
 	public void testPay(){
 		UnifiedOrderRequest request = new UnifiedOrderRequest();
-		request.setAppid("wx7c50b0eb849348d3");
+		request.setAppid("您的公众号appid");
 		request.setMch_id("10012936");
 		request.setDevice_info("WEB");					//可选
 		request.setNonce_str("4735293714");

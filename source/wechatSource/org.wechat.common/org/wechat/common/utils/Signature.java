@@ -1,19 +1,18 @@
 package org.wechat.common.utils;
 
-import org.apache.log4j.Logger;
-import org.wechat.common.utils.EncryptUtils;
-import org.wechat.pay.annotation.NotSign;
-import org.wechat.pay.utils.Configure;
-import org.wechat.pay.utils.Util;
-import org.wechat.pay.utils.XMLParser;
-import org.xml.sax.SAXException;
-
-import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
+
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.apache.log4j.Logger;
+import org.wechat.pay.annotation.NotSign;
+import org.wechat.pay.utils.Configure;
+import org.wechat.pay.utils.XMLParser;
+import org.xml.sax.SAXException;
 
 /**
  * 获取签名

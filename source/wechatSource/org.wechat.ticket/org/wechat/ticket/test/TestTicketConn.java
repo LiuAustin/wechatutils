@@ -20,7 +20,7 @@ public class TestTicketConn {
 	@Before
 	public void init(){
 		ticketConn = new TicketConn();
-		accessToken = "Y8iUaUie2xmyIJSYjbZy_k8tAj7Q_LKzoZsBKGEXXbeRvQkMDQTjrrqHHx_aLEIxL0A5jLmfCNalgvMHGOJN4_UMUANGmXwGkCjYx_5Ja4U";
+		accessToken = "您的accessToken";
 	}
 	
 	/**
