@@ -1,0 +1,50 @@
+10
+
+dir
+270
+svn://git.oschina.net/andyTeam/andyFinalyWechatMall/project/wechatSource/org.wechat.redpack/org/wechat/redpack
+svn://git.oschina.net/andyTeam/andyFinalyWechatMall
+
+
+
+2015-09-20T09:14:43.000000Z
+270
+划不出的界限 <940753574@qq.com>
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+8fc183ab-9441-4c4a-9638-62d1758ddc8a
+
+
+
+
+
+
+0
+
+conn
+dir
+
+request
+dir
+
+respose
+dir
+
+test
+dir
+
+utils
+dir
+

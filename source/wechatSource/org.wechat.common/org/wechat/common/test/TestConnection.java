@@ -27,7 +27,7 @@ public class TestConnection {
 		//https://api.weixin.qq.com/cgi-bin/getcallbackip
 		//http://file.api.weixin.qq.com/cgi-bin/media/upload
 		try {
-			String path =conn.SetParmas(map, tespath,"");
+			String path =conn.setParmas(map, tespath,"");
 			System.out.println("path------>"+path.toString());
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -36,14 +36,14 @@ public class TestConnection {
 	
 	/**
 	 * 测试获取token
-	 * 您公众号key
-	 * 您公众号secret
-	 * {"access_token":"授权token","expires_in":7200}
+	 * wxbe9b341d6a65d7fb    wx7c50b0eb849348d3
+	 * df5425f47f1b7ba6277e845875a1cafa     3ecd05a98cd689598cfbdc67591ded2d
+	 * {"access_token":"vCyDyaownlba5vYHjSChf9IY2KrDaNoYNcfb8DVDGPkoUlZOG1sE1I_u02i_rNEmmPykW7b0Gplod65nFdgiTdyFVqUamv4UGdhryafIF-I","expires_in":7200}
 	 */
 	@Test 
 	public void testGetToken(){
-		String key="您公众号key";
-		String secret="您公众号secret";
+		String key="key";
+		String secret="myser";
 		String path="https://api.weixin.qq.com/cgi-bin/token?";
 		TreeMap<String,String> map = new TreeMap<String,String>();
 		map.put("grant_type", "client_credential");

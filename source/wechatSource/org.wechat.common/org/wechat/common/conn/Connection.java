@@ -27,7 +27,7 @@ import org.wechat.common.entity.results.AccessToken;
 import org.wechat.common.entity.results.JsonResult;
 import org.wechat.common.entity.results.WechatResult;
 import org.wechat.common.utils.ConvertJsonUtils;
-import org.wechat.common.utils.StringUtils;
+import org.wechat.common.utils.WStringUtils;
 
 import com.alibaba.fastjson.JSONObject;
 
@@ -111,8 +111,7 @@ public class Connection {
 			} catch (Exception e) {
 				throw new IOException(e);
 			}
-			HttpsURLConnection connHttps = (HttpsURLConnection) url
-					.openConnection();
+			HttpsURLConnection connHttps = (HttpsURLConnection) url.openConnection();
 			connHttps.setSSLSocketFactory(context.getSocketFactory());
 			connHttps.setHostnameVerifier(new HostnameVerifier() {
 
@@ -215,7 +214,7 @@ public class Connection {
 			String method, String apiPath, String savePath) {
 		WechatResult result = new WechatResult();
 		try {
-			apiPath = SetParmas(params, apiPath, "");
+			apiPath = setParmas(params, apiPath, "");
 			URL url = new URL(apiPath);
 			HttpURLConnection conn = getConnection(method, url);
 			if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
@@ -386,7 +385,7 @@ public class Connection {
 			String method, String mediaPath, String data) {
 		String result = "";
 		try {
-			String url = SetParmas((TreeMap<String, String>) map, urlPath, "");
+			String url = setParmas((TreeMap<String, String>) map, urlPath, "");
 			result = HttpUploadMedia(
 					(method == null || "".equals(method)) ? "GET" : method,
 					url, mediaPath, default_connTime, default_upload_readTime,
@@ -414,7 +413,7 @@ public class Connection {
 			String mediaPath, String data) {
 		String result = "";
 		try {
-			String url = SetParmas((TreeMap<String, String>) map,
+			String url = setParmas((TreeMap<String, String>) map,
 					up_media_path, "");
 			result = HttpUploadMedia(
 					(method == null || "".equals(method)) ? "GET" : method,
@@ -445,7 +444,7 @@ public class Connection {
 			String method, String apiPath, String mediaPath, String data) {
 		String reuslt = "";
 		try {
-			String url = SetParmas(params, apiPath, "");
+			String url = setParmas(params, apiPath, "");
 			method = (method == null || "".equals(method) ? "GET" : method);
 			reuslt = HttpUploadMedia(method, url, mediaPath, default_connTime,
 					default_upload_readTime, data);
@@ -482,16 +481,12 @@ public class Connection {
 
 	/**
 	 * 设置参数
-	 * 
-	 * @param map
-	 *            参数map
-	 * @param path
-	 *            需要赋值的path
-	 * @param charset
-	 *            编码格式 默认编码为utf-8
+	 * @param map    参数map
+	 * @param path      需要赋值的path
+	 * @param charset  编码格式 默认编码为utf-8
 	 * @return 已经赋值好的url 只需要访问即可
 	 */
-	public String SetParmas(Map<String, String> map, String path, String charset)
+	public String setParmas(Map<String, String> map, String path, String charset)
 			throws Exception {
 		String result = "";
 		boolean hasParams = false;
@@ -507,10 +502,8 @@ public class Connection {
 					} else {
 						hasParams = true;
 					}
-					charset = (charset != null && !"".equals(charset) ? charset
-							: default_charset);
-					builder.append(key).append("=")
-							.append(URLDecoder.decode(value, charset));
+					charset = (charset != null && !"".equals(charset) ? charset: default_charset);
+					builder.append(key).append("=").append(URLDecoder.decode(value, charset));
 				}
 				result = builder.toString();
 			}
@@ -528,10 +521,10 @@ public class Connection {
 	 */
 	private URL doUrlPath(String path, String query) throws Exception {
 		URL url = new URL(path);
-		if (StringUtils.StringIsEmpty(path)) {
+		if (WStringUtils.StringIsEmpty(path)) {
 			return url;
 		}
-		if (StringUtils.StringIsEmpty(url.getQuery())) {
+		if (WStringUtils.StringIsEmpty(url.getQuery())) {
 			if (path.endsWith("?")) {
 				path += query;
 			} else {
@@ -564,7 +557,7 @@ public class Connection {
 			Map<String, String> map, String data) {
 		String result = "";
 		try {
-			String url = SetParmas((TreeMap<String, String>) map, path, "");
+			String url = setParmas((TreeMap<String, String>) map, path, "");
 			result = defaultConnection(method, url, default_connTime,
 					default_readTime, data);
 		} catch (Exception e) {
@@ -590,9 +583,8 @@ public class Connection {
 			Map<String, String> map, String data) {
 		String result = "";
 		try {
-			String url = SetParmas((TreeMap<String, String>) map, path, "");
-			result = defaultConnection(method, url, default_connTime,
-					default_readTime, data);
+			String url = setParmas((TreeMap<String, String>) map, path, "");
+			result = defaultConnection(method, url, default_connTime,default_readTime, data);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -620,10 +612,10 @@ public class Connection {
 	
 	/**
 	 * 获取授权信息
-	 * @param key	appkey
+	 * @param key	    appkey		
 	 * @param secret	secret
 	 * @return		result.success==true时,result.obj为accessToken对象  否则为 result.obj=错误提示信息 
-	 * 				result.msg= 原始返回数据
+	 * 		        result.msg= 原始返回数据
 	 */
 	public WechatResult getAccessTokenObject(String key,String secret){
 		WechatResult result = new WechatResult();

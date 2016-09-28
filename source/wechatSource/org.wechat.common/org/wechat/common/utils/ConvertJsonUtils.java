@@ -1,5 +1,6 @@
 package org.wechat.common.utils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.wechat.common.entity.results.WechatResult;
@@ -73,6 +74,29 @@ public class ConvertJsonUtils {
 	}
 	
 	/**
+	 * 获取json格式数据中的键,将其中的值作为转换为List中的数据
+	 * @param jsonData	json格式的数据
+	 * @param t			待转换的类型
+	 * @param key		json格式中的指定的键
+	 * @return			list集合
+	 * 示列：
+	 * 
+	 * 这里的key  kf_online_list
+	 */
+	public static <T> List<T> jsonToJavaListByKey(String jsonData,Class<T> t,String key){
+		List<T> result = new ArrayList<T>();
+		JSONObject obj = JSONObject.parseObject(jsonData);
+		if(null!=obj){
+			if(obj.containsKey(key)){
+				jsonData = obj.getString(key);
+				result = new ArrayList<T>();
+				result = JSONObject.parseArray(jsonData,t);
+			}
+		}
+		return result;
+	}
+	
+	/**
 	 * 将结果集中判断是否有关键字,如果有关键字,则返回转换后的对象,否则返回原json字符串
 	 * @param jsonData	待转换的json格式字符串
 	 * @param t			待转换的类型
@@ -87,6 +111,23 @@ public class ConvertJsonUtils {
 			result.setSuccess(true);
 		}else{
 			result.setObj(jsonData);
+		}
+		return result;
+	}
+
+	/**
+	 * 判断json格式中数据是否包含某个关键字
+	 * @param jsonData	待判断的json格式字符串
+	 * @param keyword	关键字			注意传入的关键字必须是根目录下的key值
+	 * @return	true 表示存在,false 表示不存在
+	 */
+	public static boolean jsonDataHasKeyWord(String jsonData,String keyword){
+		boolean result = false;
+		if(jsonData!=null&&!"".equals(jsonData)){
+			JSONObject object = JSONObject.parseObject(jsonData);
+			if(object.containsKey(keyword)){
+				result = true;
+			}
 		}
 		return result;
 	}
