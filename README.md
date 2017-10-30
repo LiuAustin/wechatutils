@@ -1,7 +1,7 @@
 ## 更新
 &nbsp;&nbsp;嗨,大家好,好久不见,转眼间该项目已经开源2年了，也一直没来得及更新，
 主要也不知道该项目对大家有没有帮助,最近有朋友说,可以写写该项目的文档，看着star也有增长,
-决定近期在个人微信公众号《andyqian》上更新一系列该项目的文档,有兴趣的朋友可以关注,在使用该项目中有任何问题,
+决定近期在个人微信公众号《andyqian》上更新一系列该项目的文档,有兴趣的朋友可以关注,在使用该项目有任何问题,
 都可以在公众号下留言,我看到后第一时间回复的。
 ![微信公众号](http://img.blog.csdn.net/20170401092446529?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDY5NTc5NA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
